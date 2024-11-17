@@ -80,7 +80,7 @@ async function getData(){
   const cors1 = `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`;
 
   //going over cors policy
-  const response = await fetch(cors1);
+  const response = await fetch('/api');
   if (!response.ok)
     throw new Error(await response.text());
   for await (const chunk of response.body.values()) {
