@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>island_picker.js</title>
+		<link rel="stylesheet" href="style.css">
+		<!-- <style>body{margin: 0}</style> -->
+	</head>
+	<body>
+
+<!-- popup window  -->
+		<div class="overlay" id="overlay">
+			<div class="popup" id="popup">
+				<h2 id="popup-title">Rules</h2>
+				<p id="popup-body">This is a island_picker.js game where user tries to guess island with highest average elevation. <br>
+					Player has three lives that are represented by three hearts in upper-left corner of the game. <br><br> Good Luck. </p>
+				<button id="close-popup">Close</button>
+			</div>
+		</div>
+<!-- navbar -->
+		<nav class="main-nav">
+			<div class="nav-title">island_picker.js</div>
+			<ul class="nav-options">
+				<li><a id="rules" href="#">Rules</a></li>
+				<li><a id="project" href="#">Project</a></li>
+				<li><a id="author" href="#">Author</a></li>
+			</ul>
+		</nav>
+<!-- game start -->
+		<div id="container">
+			<div id="app">
+
+			</div>
+			<div id="hearts-container" class="hearts-container">
+				<img id="heart3" class="heart3" src="resources/images/pixel-heart.png" alt="h">
+				<img id="heart2" class="heart2" src="resources/images/pixel-heart.png" alt="h">
+				<img id="heart1" class="heart1" src="resources/images/pixel-heart.png" alt="h">
+			</div>
+		</div>
+<!-- game end -->
+		
+		<script src="scripts/main.js" type="module"></script>
+		<script src="scripts/popup.js" type="module"></script>
+	</body>
+</html>

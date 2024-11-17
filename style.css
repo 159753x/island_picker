@@ -1,0 +1,181 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    height: 100vh; /* Ensure body and html are full height */
+}
+body{
+    margin: 0;
+    height: 100vh;
+    background-color: #333;
+    font-family: 'PressStart';
+}
+@font-face {
+    font-family: 'Minecraftia-Bold';
+    src: url(resources/fonts/Minecraft-Bold.otf);
+}
+@font-face {
+    font-family: 'Monocraft';
+    src: url(resources/fonts/Monocraft-nerd-fonts-patched.ttc);
+}
+@font-face {
+    font-family: 'PressStart';
+    src: url(resources/fonts/PressStart2P-Regular.ttf);
+}
+/* nav start */
+/* h1{
+    font-family: 'PressStart';
+    font-size: 40px;
+} */
+
+.main-nav {
+    display: flex; /* Use Flexbox for alignment */
+    justify-content: space-between; /* Space between title and options */
+    align-items: center; /* Vertically center items */
+    padding: 20px 20px; /* Add some padding */
+    color: #f0f0f0; /* White text */
+    border-bottom: #f0f0f0 3px solid;
+}
+
+.nav-title {
+    font-family: 'PressStart';
+    font-size: 1.75em; /* Larger font size for the title */
+    font-weight: bold;
+}
+
+.nav-options {
+    font-family: 'PressStart';
+    display: flex; /* Align list items horizontally */
+    list-style: none; /* Remove default list styling */
+    gap: 15px; /* Add spacing between options */
+}
+
+.nav-options li a {
+    text-decoration: none; /* Remove underline */
+    color: #fff; /* White text for links */
+    padding: 5px 10px; /* Add padding for clickable area */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.nav-options li a:hover {
+    background-color: #555; /* Highlight on hover */
+    border-radius: 5px; /* Rounded corners */
+}
+
+
+
+/* nav responsive*/
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    .nav-options {
+        margin-top: 20px;
+        flex-direction: column; /* Stack options vertically */
+        gap: 10px; /* Adjust spacing */
+    }
+}
+
+/* nav end */
+
+
+.heart1, .heart2, .heart3{
+    /* font-size: 30px; */
+    animation: heartbeat 2s infinite;
+}
+
+.hearts-container {
+    position: absolute; /* Overlay on top of the container */
+    top: 50px; /* Position from the top */
+    right: 15%; /* Position from the right */
+    display: flex;
+    gap: 5px; /* Space between hearts */
+    z-index: 10; /* Ensure it is on top of everything */
+    pointer-events: none; /* Prevent interaction with hearts */
+}
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+#container{
+    position: absolute;
+    margin: 0; /* Remove default margin */
+    margin-top: 30px;
+    width: 100vw; /* Ensure body takes up the full viewport height */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Horizontally center the div */
+    align-items: center; /* Vertically center the div */
+}
+#app{
+    /* position: absolute; */
+    width: 80vw; /* 80% of viewport width */
+    height: 80vh; /* 80% of viewport height */
+    /* border: 1px goldenrod solid;
+    border-radius: 20px; */
+}
+
+/* popup window */
+.overlay {
+    
+    position: fixed; /* Stays fixed relative to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%; /* Covers the entire screen */
+    height: 100%; /* Covers the entire screen */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    display: none; /* Center the popup */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it is above other content */
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Initially invisible */
+    transition: opacity 0.3s ease; /* Smooth fade-in effect */
+}
+
+/* Popup Window */
+.popup {
+    background: #222; /* White background */
+    color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    border: #000 2px solid;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px; /* Optional: Max width for the popup */
+    width: 100%; /* Optional: Full width for smaller screens */
+}
+.popup h2{
+    font-size: 1.25em;
+    margin-bottom: 20px;
+}
+.popup p{
+    font-family: 'Monocraft';
+    font-size: 0.90em;
+    margin-bottom: 20px;
+}
+.popup button{
+    font-family: 'PressStart';
+    padding: 5px;
+    font-size: 1em;
+}
+
+/* Show the overlay */
+.overlay.active {
+    display: flex;
+    visibility: visible; /* Make it visible */
+    opacity: 1; /* Fully opaque */
+
+}
+
+.overlay.active ~ .main-nav {
+    pointer-events: none; /* Disable interaction with background content */
+}

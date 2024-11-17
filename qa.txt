@@ -1,0 +1,46 @@
+------
+Intro:
+My project was done in vanilla JS using ThreeJS library that uses WebGL library so that browsers can access GPU and work with it directly.
+I used Vite as bundler, for setting local server and for building.
+Game is hosted on Github Pages: https://159753x.github.io/island_picker
+
+--------------------------------------
+Description of bugs and problems that came up (fixing them and noticing them):
+
+1. First bug that came around was with CORS Policy, and that problem occured throught all phases of development: It is easy to notice since I got CORS error in console when trying to fetch data from backend. - somewhat fixed
+
+All possible fixes:
+-trying to add mode:'no-cors' to my request = doesn't work
+-trying to install plugin for my browser for testing = works with `Cross Domain - CORS` plugin, again it is not viable solutin when game is hosted since it must be installed on every browser that is using the app.
+-trying Vite proxy: works on development server, but it is not possible to set up when hosted
+-trying public no-cors proxy (i am using api.allorigins.win): works with hosted app but it uses caching method for recieving and proxying requests and that causes for request to be stored for some time in memory before sending another request, which in the end have effect that game only recieves one type of island for some time ( untill proxy service cleans cache).
+
+
+2.Bug with Apple devices, I only know about this since I asked friends to try hosted versions on their apple devices and sometimes it does not work, but I can't fix this since I don't use any Apple device. - not fixed
+
+3. Working with stream data from api. I fixed it using TextDecoder - fixed
+
+4. Problem with Instanced meshing and normal meshing. I opted for instanced meshing since it is so much better for performance, but it is a lot harder to keep track of every block in my map and what is their parent island - fixed
+
+5. Problem with distinguishing separate islands. This one I fixed using Breadth First Search on matrix - fixed.
+
+6. Representing the islands in 3d form was fixed with grouping objects (I already mentioned instancing so that is type of mesh for each island). - fixed
+
+7. Problem with selecting objects behind popup windows when they are active, I used var popupActive for checking if popup is active on mouse inputs. This could be done much more elegantly if I wanted to use game states from the beggining, but since this was rather small and easy game I didn't see the purpose. - fixed
+
+8. Problem with coloring blocks was fixed using instanceId of every block and applying correct material with color on them.
+
+--------
+Testing:
+I used manual testing since I thought game is fairly simple.
+
+-----------------
+Factors that could affect my solution:
+
+1. map size could affect my solution since if it is larger it can pose for certain performance issues and in that case i would work with plane and setting vertices of plane's grid to be certain height.
+
+2. change in number of lives would not affect my project at all.
+
+3. If project needed levels i would use more robust game state that is easy to test and work with.
+
+
