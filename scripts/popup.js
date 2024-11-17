@@ -111,6 +111,7 @@ function showAuthor(){
 function showProject(){
     popupTitle.textContent = `About Project`;
     popupBody.innerHTML = `island_picker.js is an 3D game created using Three.js, inspired by the iconic blocky style of Minecraft.<br><br> 
-    The game combines graphics, lighting, and responsive controls, providing a fun and creative experience for players who enjoy pixel-style gaming.`;
+    The game combines graphics, lighting, and responsive controls, providing a fun and creative experience for players who enjoy pixel-style gaming.<br><br>
+    You can find GitHub Repo <a href="https://github.com/159753x/island_picker" target="_blank"> here </a>`;
     showPopup();
 }

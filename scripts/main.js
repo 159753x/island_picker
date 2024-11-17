@@ -76,11 +76,12 @@ async function getData(){
   let numStr = '';
   let char = '';
   
-  const apiUrl = 'https://jobfair.nordeus.com/jf24-fullstack-challenge/test#';
+  const apiUrl = 'https://jobfair.nordeus.com/jf24-fullstack-challenge/test';
   const cors1 = `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`;
+  const cors2 = 'https://corsproxy.io/?' + encodeURIComponent('https://jobfair.nordeus.com/jf24-fullstack-challenge/test');
 
   //going over cors policy
-  const response = await fetch('/api');
+  const response = await fetch(cors2);
   if (!response.ok)
     throw new Error(await response.text());
   for await (const chunk of response.body.values()) {

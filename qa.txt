@@ -7,13 +7,15 @@ Game is hosted on Github Pages: https://159753x.github.io/island_picker
 --------------------------------------
 Description of bugs and problems that came up (fixing them and noticing them):
 
-1. First bug that came around was with CORS Policy, and that problem occured throught all phases of development: It is easy to notice since I got CORS error in console when trying to fetch data from backend. - somewhat fixed
+1. First bug that came around was with CORS Policy, and that problem occured throught all phases of development: It is easy to notice since I got CORS error in console when trying to fetch data from backend. - fixed
 
 All possible fixes:
 -trying to add mode:'no-cors' to my request = doesn't work
 -trying to install plugin for my browser for testing = works with `Cross Domain - CORS` plugin, again it is not viable solutin when game is hosted since it must be installed on every browser that is using the app.
 -trying Vite proxy: works on development server, but it is not possible to set up when hosted
--trying public no-cors proxy (i am using api.allorigins.win): works with hosted app but it uses caching method for recieving and proxying requests and that causes for request to be stored for some time in memory before sending another request, which in the end have effect that game only recieves one type of island for some time ( untill proxy service cleans cache).
+-trying public no-cors proxy (i was using api.allorigins.win): works with hosted app but it uses caching method for recieving and proxying requests and that causes for request to be stored for some time in memory before sending another request, which in the end have effect that game only recieves one type of island for some time ( untill proxy service cleans cache).
+-trying next public no-cors proxy (corsproxy.io) which works great since it doesn't cache request, but proxying them every time.
+-(PS. Also one possible solution would be to just get every island combination from the backend since they are static and put them in txt file or something similar and read data from there, in that case game would not need to get over CORS issues.)
 
 
 2.Bug with Apple devices, I only know about this since I asked friends to try hosted versions on their apple devices and sometimes it does not work, but I can't fix this since I don't use any Apple device. - not fixed

@@ -40,4 +40,4 @@ Three.js: 3D rendering library for the Minecraft-style visuals.
 JavaScript: Core language for the project.
 
 ## API Calls
-This is project that can be tested locally with sending request to '/api' path, that will cause Vite to use proxy server to get over CORS issue.
+This is project that can be tested locally with sending request to '/api' path, that will cause Vite to use proxy server to get over CORS issue. But currently is using corsproxy.io which can work in both dev and production environment.
